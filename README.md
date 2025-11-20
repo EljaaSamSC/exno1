@@ -101,4 +101,4 @@ output <img width="1373" height="467" alt="image" src="https://github.com/user-a
 
 
 # Result
-          <<include your Result here>>
+  Thus we have cleaned the data and removed the outliers by detection using IQR and Z-score method.
