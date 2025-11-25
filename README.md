@@ -89,15 +89,73 @@ df.bfill()
 
 output <img width="1373" height="467" alt="image" src="https://github.com/user-attachments/assets/ac04a34d-90e0-44d3-b02a-060aa1e02cd0" />
 
+Remove outliers using IQR method
+
+ir=pd.read_csv('iris.csv') 
+ir
+
+output <img width="947" height="462" alt="image" src="https://github.com/user-attachments/assets/9fe7828a-ce41-4621-ba2a-f39d6d20a4a9" />
+
+sns.boxplot(ir)
+
+output <img width="1263" height="562" alt="image" src="https://github.com/user-attachments/assets/0a1e0a74-47dc-4781-854a-bdea82ed4b1b" />
+
+sns.scatterplot(ir)
+
+output <img width="1217" height="590" alt="image" src="https://github.com/user-attachments/assets/f04b5edd-8e30-4bb9-afd1-9dbd4e2b4a09" />
+
+q1=ir.sepal_width.quantile(0.25) 
+q3=ir.sepal_width.quantile(0.75) 
+iqr=q3-q1 
+print(iqr)
+
+output <img width="705" height="65" alt="image" src="https://github.com/user-attachments/assets/7721901c-4f8e-4b55-b46f-f8d3c9e625c3" />
 
 
+rid=ir[((ir.sepal_width<(q1-1.5*iqr))|(ir.sepal_width>(q3+1.5*iqr)))] 
+rid['sepal_width'] 
+
+output <img width="579" height="116" alt="image" src="https://github.com/user-attachments/assets/9dc699a5-bd10-46f6-a1ae-d70f01576f29" />
+
+delid=ir[~((ir.sepal_width<(q1-1.5*iqr))|(ir.sepal_width>(q3+1.5*iqr)))] 
+delid
+
+output <img width="979" height="464" alt="image" src="https://github.com/user-attachments/assets/280119df-9e57-4b6c-bef8-b49335678129" />
 
 
+Remove outliers using Z-score method
 
+data=[1,12,15,18,21,24,27,30,33,36,39,42,45,48,51,54,57,60,63,66,69,72,75,78,81,
+ 84,87,90,93] 
+df=pd.DataFrame(data) 
+mean=np.mean(data)
+mean
 
+output <img width="856" height="15" alt="image" src="https://github.com/user-attachments/assets/453f620b-bb6f-41ef-8cb1-c8d4ac67bd95" />
 
+std=np.std(data) 
+std 
 
+output <img width="859" height="36" alt="image" src="https://github.com/user-attachments/assets/a750e3e7-4094-4c4f-b2e6-174646000640" />
 
+z=np.abs(stats.zscore(df)) 
+z 
+
+output <img width="555" height="770" alt="image" src="https://github.com/user-attachments/assets/3c7a8526-562a-4911-8fa6-0cead3636a0a" />
+       <img width="532" height="182" alt="image" src="https://github.com/user-attachments/assets/d30f254c-2961-4ebe-ac20-9e94d353226c" />
+
+threshold=3 
+outliers = df[abs(df) > 3] 
+print("Outliers:") 
+print(outliers) 
+
+output <img width="880" height="682" alt="image" src="https://github.com/user-attachments/assets/5e8654d8-c178-4213-8689-9db6ff4f41d7" />
+
+df_cleaned = df[(z <= threshold)] 
+df_cleaned 
+
+output <img width="961" height="775" alt="image" src="https://github.com/user-attachments/assets/b1b337c3-740d-49f8-97c3-fc6161f01d90" />
+       <img width="724" height="201" alt="image" src="https://github.com/user-attachments/assets/d1105af5-99fd-488a-b807-1edb9664ac0d" />
 
 
 # Result
