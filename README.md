@@ -85,6 +85,10 @@ df.fillna("Weakhero")
 
 output <img width="1357" height="629" alt="image" src="https://github.com/user-attachments/assets/53875b20-9a28-476f-bada-1f5e8f5f9c40" />
 
+df.ffill()
+
+output <img width="1353" height="447" alt="image" src="https://github.com/user-attachments/assets/f1e124f1-3fe3-420f-a580-dcf720487bbf" />
+
 df.bfill()
 
 output <img width="1373" height="467" alt="image" src="https://github.com/user-attachments/assets/ac04a34d-90e0-44d3-b02a-060aa1e02cd0" />
