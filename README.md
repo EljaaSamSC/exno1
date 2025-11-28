@@ -163,4 +163,4 @@ output <img width="961" height="775" alt="image" src="https://github.com/user-at
 
 
 # Result
-  Thus we have cleaned the data and removed the outliers by detection using IQR and Z-score method.
+  Thus the program to read the given data and perform data cleaning and save the cleaned data to a file and removing outliers using IOR method and Z-score method is written and executed successfully.
